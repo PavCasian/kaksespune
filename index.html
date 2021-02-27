@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>KakSespune</title>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+  </script><!-- this is a CDN facility which means that we are accessing
+  the jquery code from google servers,instead of having the code locally,
+  which may make the loading of the code faster -->
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+    <form action="/search" method="POST">
+        <input type="text" name="search_word" id="search_word">
+        <input type="submit" value="Search">
+    </form>
+<br>
+<br>
+    <form action="/add_words" method="POST">
+        <fieldset>
+            <legend>Please add translations</legend>
+
+            <div id="dialectDiv">
+            <input type="text" name="dialect" id="dialect">
+            <label for="dialect">Dialect</label><br>
+            </div>
+
+            <br>
+
+            <div id="romanianDiv">
+            <input type="text" name="romanian" id="romanian">
+            <label for="romanian">Romanian</label>
+            <input type="button" value="More" class="addButton">
+            <input type="button" value="Remove" class="removeButton">
+            </div>
+
+            <br>
+
+            <div id="russianDiv">
+            <input type="text" name="russian" id="russian">
+            <label for="russian">Russian</label>
+            <input type="button" value="More" class="addButton">
+            <input type="button" value="Remove" class="removeButton">
+            </div>
+
+            <br>
+
+            <input type="submit" value="Add Word">
+        </fieldset>
+    </form>
+
+{% endblock %}
