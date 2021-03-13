@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Update Word</title>
+{% endblock %}
+
+{% block body %}
+
+
+    <form action="/update/{{to_update.id}}/{{part}}" method="POST">
+        <input type="text" name="new_content" id="new_content" value="{{to_update[part]}}">
+        <input type="submit" value="Update">
+    </form>
+
+
+{% endblock %}
+
+
+
+
+
